@@ -65,4 +65,16 @@ const Transactions = () => {
             </h3>
           )}
 
+<div className="flex flex-wrap justify-center items-center mt-10">
+          {[...dummyData, ...transactions].reverse().map((transaction, i) => (
+            <TransactionsCard key={i} {...transaction} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Transactions;
+
 export default Transactions;
