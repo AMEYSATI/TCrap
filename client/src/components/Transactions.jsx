@@ -6,6 +6,9 @@ import useFetch from "../hooks/useFetch";
 import dummyData from "../utils/dummyData";
 import { shortenAddress } from "../utils/shortenAddress";
 
+const TransactionsCard = ({ addressTo, addressFrom, timestamp, message, keyword, amount, url }) => {
+    const gifUrl = useFetch({ keyword });
+
 
 const Transactions = () => {
     return (
