@@ -16,3 +16,22 @@ contract Transactions {
         string account;
         string keyword;
     }
+      TransferStruct[] transactions;
+
+    function transfer(address payable receiver, uint amount, string memory message, string memory account, string memory keyword) public {
+        transactionCount += 1;
+        transactions.push(TransferStruct(msg.sender, receiver, amount, message, block.timestamp, account, keyword));
+
+        emit Transfer(msg.sender, receiver, amount, message, block.timestamp, account, keyword);
+
+        receiver.transfer(amount);
+    }
+
+    function getAllTransactions() public view returns (TransferStruct[] memory) {
+        return transactions;
+    }
+
+    function getTransactionCount() public view returns (uint256) {
+        return transactionCount;
+    }
+}
